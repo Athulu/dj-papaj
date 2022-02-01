@@ -27,7 +27,7 @@ steps:
       mavenAuthenticateFeed: false
       effectivePomSkip: false
       sonarQubeRunAnalysis: false
-      
+
   - task: VSTest@2
     inputs:
       testSelector: 'testAssemblies'
@@ -48,7 +48,7 @@ steps:
     inputs:
       testResultsFormat: 'JUnit'
       testResultsFiles: '**/TEST-*.xml'
-=======
+
 - task: VSTest@2
   inputs:
     testSelector: 'testAssemblies'
