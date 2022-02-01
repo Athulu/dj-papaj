@@ -2,6 +2,7 @@
 
 
 
+
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
@@ -28,8 +29,13 @@ steps:
   inputs:
     archiveFilePatterns: '**/*.zip'
     cleanDestinationFolder: true
-    overwriteExistingFiles: false
-  
+    overwriteExistingFiles: false 
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
 
 - task: DownloadBuildArtifacts@1
   inputs:
