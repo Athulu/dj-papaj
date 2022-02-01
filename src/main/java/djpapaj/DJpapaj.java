@@ -115,7 +115,6 @@ public class DJpapaj {
             playerManager.loadItem(command.get(1), scheduler);
             //lista.add(Arrays.asList("!play https://www.youtube.com/watch?v=LgOcy0jr4wQ".split(" ")));
             //playerManager.loadItemOrdered(lista.get(0), lista.get(0).get(1), scheduler);
-            //
 
         });
         client.onDisconnect().block();
