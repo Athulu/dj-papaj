@@ -35,9 +35,9 @@ public class DJpapaj {
 
     static {
 
-        commands.put("dzieci", event -> event.getMessage()
+        commands.put("no jak tam papaj?", event -> event.getMessage()
                 .getChannel().block()
-                .createMessage("Lubię dzieci :rofl:").block());
+                .createMessage("była bycza").block());
     }
 
     static {
@@ -67,7 +67,7 @@ public class DJpapaj {
 
                     for (final Map.Entry<String, Command> entry : commands.entrySet()) {
                         // We will be using ! as our "prefix" to any command in the system.
-                        if (content.startsWith("!" + entry.getKey())) { //'#'
+                        if (content.startsWith("" + entry.getKey())) { //'#'
                             entry.getValue().execute(event);
                             break;
                         }
