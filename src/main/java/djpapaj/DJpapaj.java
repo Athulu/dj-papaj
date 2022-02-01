@@ -49,8 +49,6 @@ public class DJpapaj {
     }
 
 
-
-
     public static void main(String[] args) {
         final GatewayDiscordClient client = DiscordClientBuilder.create(args[0]).build()
                 .login()
