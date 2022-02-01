@@ -27,8 +27,7 @@ steps:
       mavenAuthenticateFeed: false
       effectivePomSkip: false
       sonarQubeRunAnalysis: false
-
-<<<<<<< HEAD
+      
   - task: VSTest@2
     inputs:
       testSelector: 'testAssemblies'
