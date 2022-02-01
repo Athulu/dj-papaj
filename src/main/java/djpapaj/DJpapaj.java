@@ -35,7 +35,7 @@ public class DJpapaj {
 
     static {
 
-        commands.put("no jak tam papaj?", event -> event.getMessage()
+        commands.put("jak smakowała kremówka?", event -> event.getMessage()
                 .getChannel().block()
                 .createMessage("była bycza").block());
     }
@@ -44,7 +44,6 @@ public class DJpapaj {
         commands.put("help", event -> event.getMessage()
                 .getChannel().block()
                 .createMessage("◉ Kto idzie na kremówki? - zbieranie ekipy\n" +
-                        "◉ dzieci - :)\n" +
                         "◉ play - + link do piosenki z youtube'a\n" +
                         "◉ help - lista komend").block());
     }
@@ -67,7 +66,7 @@ public class DJpapaj {
 
                     for (final Map.Entry<String, Command> entry : commands.entrySet()) {
                         // We will be using ! as our "prefix" to any command in the system.
-                        if (content.startsWith("" + entry.getKey())) { //'#'
+                        if (content.startsWith("!" + entry.getKey())) { //'#'
                             entry.getValue().execute(event);
                             break;
                         }
@@ -115,8 +114,8 @@ public class DJpapaj {
             lista.add(Arrays.asList(content.split(" ")));
             playerManager.loadItem(command.get(1), scheduler);
             //lista.add(Arrays.asList("!play https://www.youtube.com/watch?v=LgOcy0jr4wQ".split(" ")));
-            //System.out.println("Jebać disa: ");
             //playerManager.loadItemOrdered(lista.get(0), lista.get(0).get(1), scheduler);
+            //
 
         });
         client.onDisconnect().block();
