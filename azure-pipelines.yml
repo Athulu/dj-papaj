@@ -21,8 +21,6 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
-    allowBrokenSymlinks: 
-    checkStyleRunAnalysis: 
 
 steps:
 - task: Maven@3
