@@ -27,36 +27,11 @@ stages:
         inputs:
           mavenPomFile: 'pom.xml'
           publishJUnitResults: true
-          testResultsFiles: '**/TEST-*.xml'
+          testResultsFiles: '**/surefire-reports/TEST-*.xml'
           javaHomeOption: 'JDKVersion'
           mavenVersionOption: 'Default'
           mavenAuthenticateFeed: false
           effectivePomSkip: false
           sonarQubeRunAnalysis: false
-      - publish: '$(Build.ArtifactStagingDirectory)'
-        artifact: drop
+          goals: package
 
-- stage: 'Test'
-  displayName: 'Deploy to the test environment'
-  dependsOn: Build
-  jobs:
-  - deployment: Deploy
-    pool:
-      vmImage: 'ubuntu-20.04'
-    environment: test
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - download: current
-            artifact: drop
-          - task: PublishPipelineArtifact@1
-            inputs:
-              targetPath: '$(Pipeline.Workspace)'
-              artifact: 'artefakt'
-              publishLocation: 'pipeline'
-          - task: PublishTestResults@2
-            inputs:
-              testResultsFormat: 'JUnit'
-              testResultsFiles: '**/TEST-*.xml'
-              mergeTestResults: true
