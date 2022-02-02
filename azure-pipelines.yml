@@ -47,3 +47,8 @@ stages:
           targetPath: '$(Pipeline.Workspace)'
           artifact: 'artefakt'
           publishLocation: 'pipeline'
+      - task: PublishTestResults@2
+        inputs:
+          testResultsFormat: 'JUnit'
+          testResultsFiles: '**/TEST-*.xml'
+          mergeTestResults: true
