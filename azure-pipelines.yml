@@ -16,7 +16,7 @@ pool:
 
 stages:
 - stage: 'Build'
-  displayName: 'Build the web application'
+  displayName: 'Build app'
   jobs: 
   - job: 'Build'
     displayName: 'Build job'
@@ -46,13 +46,15 @@ stages:
       runOnce:
         deploy:
           steps:
-            - task: PublishPipelineArtifact@1
-              inputs:
-                targetPath: '$(Pipeline.Workspace)'
-                artifact: 'artefakt'
-                publishLocation: 'pipeline'
-            - task: PublishTestResults@2
-              inputs:
-                testResultsFormat: 'JUnit'
-                testResultsFiles: '**/TEST-*.xml'
-                mergeTestResults: true
+          - download: current
+            artifact: drop
+          - task: PublishPipelineArtifact@1
+            inputs:
+              targetPath: '$(Pipeline.Workspace)'
+              artifact: 'artefakt'
+              publishLocation: 'pipeline'
+          - task: PublishTestResults@2
+            inputs:
+              testResultsFormat: 'JUnit'
+              testResultsFiles: '**/TEST-*.xml'
+              mergeTestResults: true
