@@ -27,7 +27,7 @@ stages:
         inputs:
           mavenPomFile: 'pom.xml'
           publishJUnitResults: true
-          testResultsFiles: '**/surefire-reports/TEST-*.xml'
+          testResultsFiles: '**/TEST-*.xml'
           javaHomeOption: 'JDKVersion'
           mavenVersionOption: 'Default'
           mavenAuthenticateFeed: false
