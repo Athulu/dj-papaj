@@ -41,14 +41,17 @@ stages:
   - deployment: Deploy
     pool:
       vmImage: 'ubuntu-20.04'
-    steps:
-      - task: PublishPipelineArtifact@1
-        inputs:
-          targetPath: '$(Pipeline.Workspace)'
-          artifact: 'artefakt'
-          publishLocation: 'pipeline'
-      - task: PublishTestResults@2
-        inputs:
-          testResultsFormat: 'JUnit'
-          testResultsFiles: '**/TEST-*.xml'
-          mergeTestResults: true
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - task: PublishPipelineArtifact@1
+              inputs:
+                targetPath: '$(Pipeline.Workspace)'
+                artifact: 'artefakt'
+                publishLocation: 'pipeline'
+            - task: PublishTestResults@2
+              inputs:
+                testResultsFormat: 'JUnit'
+                testResultsFiles: '**/TEST-*.xml'
+                mergeTestResults: true
