@@ -33,6 +33,8 @@ stages:
           mavenAuthenticateFeed: false
           effectivePomSkip: false
           sonarQubeRunAnalysis: false
+      - publish: '$(Build.ArtifactStagingDirectory)'
+        artifact: drop
 
 - stage: 'Test'
   displayName: 'Deploy to the test environment'
