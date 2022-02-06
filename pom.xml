@@ -22,8 +22,14 @@
 
     <distributionManagement>
         <repository>
-            <id>papajart</id>
-            <url>https://pkgs.dev.azure.com/wn46699/DjPapaj2/_packaging/papajart/maven/v1</url>
+            <id>wn46699</id>
+            <url>https://pkgs.dev.azure.com/wn46699/_packaging/wn46699/maven/v1</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
     </distributionManagement>
 
