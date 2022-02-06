@@ -28,7 +28,7 @@ stages:
         inputs:
           mavenPomFile: 'pom.xml'
           publishJUnitResults: true
-          testResultsFiles: '**/surefire-reports/TEST-*.xml'
+          testResultsFiles: '**/TEST-*.xml' #**/surefire-reports/TEST-*.xml
           javaHomeOption: 'JDKVersion'
           mavenVersionOption: 'Default'
           mavenAuthenticateFeed: false
@@ -39,13 +39,13 @@ stages:
         inputs:
           testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
           testResultsFiles: '**/TEST-*.xml' 
-          searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
+          #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
           #mergeTestResults: false # Optional
           #failTaskOnFailedTests: false # Optional
           #testRunTitle: # Optional
           #buildPlatform: # Optional
           #buildConfiguration: # Optional
-          publishRunAttachments: true # Optional
+          #publishRunAttachments: true # Optional
       - task: CopyFiles@2
         inputs:
           Contents: '**'
