@@ -14,14 +14,7 @@ pool:
   vmImage: 'ubuntu-20.04'
 
 
-stages:
-- stage: 'Build'
-  displayName: 'Build app'
-  jobs: 
-  - job: 'Build'
-    displayName: 'Build job'
-    pool:
-      vmImage: 'ubuntu-20.04'
+
 
 
 
