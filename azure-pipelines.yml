@@ -47,24 +47,27 @@ stages:
           publishLocation: 'Container'
 
 - stage: 'Test'
-  displayName: 'Deploy to the test environment'
+  displayName: 'Testy'
   dependsOn: Build
   jobs:
-  - job: 'Build'
-    displayName: 'Build job'
+  - deployment: Deploy
     pool:
       vmImage: 'ubuntu-20.04'
-      steps:
-      - download: current
-        artifact: drop
-      - task: Maven@3
-        inputs:
-          mavenPomFile: 'pom.xml'
-          goals: 'package'
-          publishJUnitResults: true
-          testResultsFiles: '**/surefire-reports/TEST-*.xml'
-          javaHomeOption: 'JDKVersion'
-          mavenVersionOption: 'Default'
-          mavenAuthenticateFeed: false
-          effectivePomSkip: false
-          sonarQubeRunAnalysis: false
+    environment: test
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - download: current
+            artifact: drop
+          - task: Maven@3
+            inputs:
+              mavenPomFile: '/home/vsts/work/1/drop/pom.xml'
+              goals: 'package'
+              publishJUnitResults: true
+              testResultsFiles: '**/surefire-reports/TEST-*.xml'
+              javaHomeOption: 'JDKVersion'
+              mavenVersionOption: 'Default'
+              mavenAuthenticateFeed: false
+              effectivePomSkip: false
+              sonarQubeRunAnalysis: false
