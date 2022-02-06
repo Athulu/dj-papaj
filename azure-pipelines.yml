@@ -23,28 +23,7 @@ stages:
     pool:
       vmImage: 'ubuntu-20.04'
 
-    steps:
-      - task: Maven@3
-        inputs:
-          mavenPomFile: 'pom.xml'
-          publishJUnitResults: true
-          testResultsFiles: '**/surefire-reports/TEST-*.xml'
-          javaHomeOption: 'JDKVersion'
-          mavenVersionOption: 'Default'
-          mavenAuthenticateFeed: false
-          effectivePomSkip: false
-          sonarQubeRunAnalysis: false
-          goals: package
-      - task: CopyFiles@2
-        inputs:
-          Contents: '**'
-          TargetFolder: '$(build.artifactstagingdirectory)'
-          CleanTargetFolder: true
-      - task: PublishBuildArtifacts@1
-        inputs:
-          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-          ArtifactName: 'drop'
-          publishLocation: 'Container'
+
 
 - stage: 'Test'
   displayName: 'Testy'
@@ -62,7 +41,7 @@ stages:
             artifact: drop
           - task: Maven@3
             inputs:
-              mavenPomFile: '/home/vsts/work/1/drop/pom.xml'
+              mavenPomFile: 'pom.xml'
               goals: 'package'
               publishJUnitResults: true
               testResultsFiles: 'TEST-*.xml' #**/surefire-reports/TEST-*.xml
