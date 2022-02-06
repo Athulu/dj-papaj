@@ -65,7 +65,7 @@ stages:
               mavenPomFile: '/home/vsts/work/1/drop/pom.xml'
               goals: 'package'
               publishJUnitResults: true
-              testResultsFiles: '**/surefire-reports/TEST-*.xml'
+              testResultsFiles: 'TEST-*.xml' #**/surefire-reports/TEST-*.xml
               javaHomeOption: 'JDKVersion'
               mavenVersionOption: 'Default'
               mavenAuthenticateFeed: false
