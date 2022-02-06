@@ -117,4 +117,8 @@ public class DJpapaj {
         });
         client.onDisconnect().block();
     }
+
+    public static int testowe(int a, int b){
+        return a*b;
+    }
 }

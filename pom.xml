@@ -19,7 +19,13 @@
             </plugin>
         </plugins>
     </build>
-        
+
+    <distributionManagement>
+        <repository>
+            <id>papajart</id>
+            <url>https://pkgs.dev.azure.com/wn46699/DjPapaj2/_packaging/papajart/maven/v1</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <maven.compiler.source>16</maven.compiler.source>
@@ -32,6 +38,7 @@
             <name>m2-dv8tion</name>
             <url>https://m2.dv8tion.net/releases</url>
         </repository>
+
         <repository>
             <id>wn46699</id>
             <url>https://pkgs.dev.azure.com/wn46699/_packaging/wn46699/maven/v1</url>
@@ -93,4 +100,6 @@
         </dependency>
 
     </dependencies>
+
+
 </project>
