@@ -35,6 +35,17 @@ stages:
           effectivePomSkip: false
           sonarQubeRunAnalysis: false
           goals: package
+      - task: PublishTestResults@2
+        inputs:
+          testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
+          testResultsFiles: '**/TEST-*.xml' 
+          searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
+          #mergeTestResults: false # Optional
+          #failTaskOnFailedTests: false # Optional
+          #testRunTitle: # Optional
+          #buildPlatform: # Optional
+          #buildConfiguration: # Optional
+          publishRunAttachments: true # Optional
       - task: CopyFiles@2
         inputs:
           Contents: '**'
