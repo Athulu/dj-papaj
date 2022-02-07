@@ -76,9 +76,20 @@ stages:
               mavenPomFile: '/home/vsts/work/1/drop/pom.xml'
               goals: 'package'
               publishJUnitResults: true
-              testResultsFiles: '**/surefire-reports/TEST-*.xml'
+              testResultsFiles: '/home/vsts/work/1/drop/target/surefire-reports/TEST-*.xml'
               javaHomeOption: 'JDKVersion'
               mavenVersionOption: 'Default'
               mavenAuthenticateFeed: false
               effectivePomSkip: false
               sonarQubeRunAnalysis: false
+          - task: PublishTestResults@2
+            inputs:
+              testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
+              testResultsFiles: '/home/vsts/work/1/drop/target/surefire-reports/TEST-*.xml' 
+              #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
+              #mergeTestResults: false # Optional
+              #failTaskOnFailedTests: false # Optional
+              #testRunTitle: # Optional
+              #buildPlatform: # Optional
+              #buildConfiguration: # Optional
+              #publishRunAttachments: true # Optional
