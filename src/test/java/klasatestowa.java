@@ -4,10 +4,9 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class klasatestowa {
-    int a = 3;
     @Test
     public void test1() {
-        assertEquals(a, 3);
+        assertEquals(3, 3);
     }
 
     @Test
