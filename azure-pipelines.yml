@@ -33,7 +33,7 @@ stages:
           mavenVersionOption: 'Default'
           mavenAuthenticateFeed: false
           effectivePomSkip: false
-          sonarQubeRunAnalysis: false
+          # sonarQubeRunAnalysis: false
           goals: package
       # - task: PublishTestResults@2
       #   inputs:
