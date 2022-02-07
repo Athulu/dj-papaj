@@ -5,14 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>djpapaj</artifactId>
+    <artifactId>Aaa</artifactId>
     <version>1.0-SNAPSHOT</version>
-
 
     <distributionManagement>
         <repository>
             <id>wn46699</id>
-            <url>https://pkgs.dev.azure.com/wn46699/_packaging/wn46699/maven/v1</url>
+            <url>https://pkgs.dev.azure.com/wn46699/Aaa/_packaging/wn46699/maven/v1</url>
         </repository>
     </distributionManagement>
 
@@ -53,6 +52,11 @@
             <version>1.3.77</version>
         </dependency>
 
+        <!--        <dependency>-->
+        <!--            <groupId>log4j</groupId>-->
+        <!--            <artifactId>log4j</artifactId>-->
+        <!--            <version>1.2.17</version>-->
+        <!--        </dependency>-->
 
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -83,45 +87,7 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-report-plugin</artifactId>
-            <version>2.19.1</version>
-            <type>maven-plugin</type>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <version>2.19.1</version>
-            <type>maven-plugin</type>
-        </dependency>
-
-        <dependency>
-            <groupId>org.docx4j</groupId>
-            <artifactId>docx4j</artifactId>
-            <version>6.1.2</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
     </dependencies>
 
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-report-plugin</artifactId>
-                <version>2.19.1</version>
-            </plugin>
-        </plugins>
-    </reporting>
 
 </project>
